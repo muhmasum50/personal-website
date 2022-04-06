@@ -45,10 +45,15 @@ export default function Header() {
         document.body.classList.add("bg-dark");
         document.getElementById("btnDarkMode").innerHTML =
           '<Image width="35" height="35" src="/img/moon.png" />';
-      } else {
+      } 
+      else {
         document.getElementById("btnDarkMode").innerHTML =
           '<Image width="35" height="35" src="/img/sun.png" />';
         document.body.classList.remove("bg-dark");
+      }
+
+      if(theme === 'system') {
+        setTheme('light')
       }
     }
     darkMode()
