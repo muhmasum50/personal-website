@@ -22,7 +22,7 @@ export default function Portfolio() {
                             <figure><img src={item.img} className="rounded-t-xl" /></figure>
                             <div className="px-5 py-5 p-5 bg-white rounded-b-xl text-slate-800">
                                 <h2 className="card-title text-sm">{item.name}</h2>
-                                <p class="text-xs">{item.desc}k</p>
+                                <p className="text-xs">{item.desc}k</p>
                             </div>
                         </div>
                     </div>

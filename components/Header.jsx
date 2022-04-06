@@ -1,5 +1,6 @@
 import { useTheme } from "next-themes";
 import React, { useEffect } from "react";
+import Image from 'next/image'
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -15,14 +16,14 @@ export default function Header() {
     if (theme === "dark") {
       document.body.classList.remove("bg-dark");
       document.getElementById("btnDarkMode").innerHTML =
-        '<img class="transition duration-2000 ease-in-out" width="35" height="35" src="/img/sun.png">';
+        '<Image width="35" height="35" src="/img/sun.png" />';
     }
     
     if(theme === 'light') {
         document.body.classList.remove("bg-light");
         document.body.classList.add("bg-dark");
         document.getElementById("btnDarkMode").innerHTML =
-        '<img class="transition duration-2000 ease-in-out" width="35" height="35" src="/img/moon.png">';
+        '<Image width="35" height="35" src="/img/moon.png" />';
     }
 
   };
@@ -39,16 +40,19 @@ export default function Header() {
       }
     };
 
-    if (theme === "dark") {
-        
-      document.body.classList.add("bg-dark");
-      document.getElementById("btnDarkMode").innerHTML =
-        '<img class="transition duration-2000 ease-in-out" width="35" height="35" src="/img/moon.png">';
-    } else {
-      document.getElementById("btnDarkMode").innerHTML =
-        '<img class="transition duration-2000 ease-in-out" width="35" height="35" src="/img/sun.png">';
-      document.body.classList.remove("bg-dark");
+    const darkMode = () => {
+      if (theme === "dark") {
+        document.body.classList.add("bg-dark");
+        document.getElementById("btnDarkMode").innerHTML =
+          '<Image width="35" height="35" src="/img/moon.png" />';
+      } else {
+        document.getElementById("btnDarkMode").innerHTML =
+          '<Image width="35" height="35" src="/img/sun.png" />';
+        document.body.classList.remove("bg-dark");
+      }
     }
+    darkMode()
+
   }, []);
 
   return (
@@ -114,7 +118,7 @@ export default function Header() {
                 className="block"
                 onClick={handlesetDarkMode}
             >
-                <img width="35" height="35" src="/img/sun.png" />
+                <Image width="35" height="35" src="/img/sun.png" />
               </button>
           </div>
         </div>
